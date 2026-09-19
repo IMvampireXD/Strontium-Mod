@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "strontium",
+	"version": "${version}",
+	"name": "Strontium",
+	"description": "A renderer tweaking mod",
+	"authors": [
+		"finnafinest_"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "MIT-License",
+	"icon": "assets/strontium/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"name.modid.Strontium"
+		],
+		"client": [
+			"name.modid.client.StrontiumClient"
+		]
+	},
+	"mixins": [
+		"strontium.mixins.json",
+		{
+			"config": "strontium.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
