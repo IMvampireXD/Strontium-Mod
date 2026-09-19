@@ -3,7 +3,14 @@
 	"package": "name.modid.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"ExampleClientMixin"
+		"OpenGLWindowMixin",
+		"DebugOverlayMixin",
+		"FontRendererMixin",
+		"WorldSwapMixin",
+		"SectionCullingMixin",
+		"PauseScreenMixin",
+		"ScreenAccessor",
+		"ShaderRenderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
