@@ -1,6 +1,7 @@
 package name.modid.optimization;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * Keeps immutable animation frames available for GPU-side copy adapters,
@@ -8,6 +9,7 @@ import java.util.Arrays;
  */
 public final class TextureAnimationCache {
 	private final BoundedCache<String, byte[]> frames;
+	private final LongAdder gpuCopies = new LongAdder();
 
 	public TextureAnimationCache(int capacity) {
 		frames = new BoundedCache<>(capacity);
@@ -17,7 +19,16 @@ public final class TextureAnimationCache {
 		return frames.getOrCompute(key, ignored -> Arrays.copyOf(pixels, pixels.length));
 	}
 
+	public void recordGpuCopy() {
+		gpuCopies.increment();
+	}
+
+	public long gpuCopies() {
+		return gpuCopies.sum();
+	}
+
 	public void clear() {
 		frames.clear();
+		gpuCopies.reset();
 	}
 }

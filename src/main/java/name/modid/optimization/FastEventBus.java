@@ -11,7 +11,7 @@ public final class FastEventBus<T> {
 	private final CopyOnWriteArrayList<Consumer<? super T>> listeners = new CopyOnWriteArrayList<>();
 
 	public void subscribe(Consumer<? super T> listener) {
-		listeners.add(listener);
+		listeners.add(FastEventFactory.listener(listener));
 	}
 
 	public void unsubscribe(Consumer<? super T> listener) {

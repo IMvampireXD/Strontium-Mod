@@ -8,9 +8,12 @@
 		"FontRendererMixin",
 		"WorldSwapMixin",
 		"SectionCullingMixin",
-		"PauseScreenMixin",
+		"SmartLeafCullingMixin",
+		"EntityCullingMetricsMixin",
+		"BlockEntityMetricsMixin",
 		"ScreenAccessor",
-		"ShaderRenderMixin"
+		"BorderlessVideoSettingsMixin",
+		"OptionsSubScreenAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

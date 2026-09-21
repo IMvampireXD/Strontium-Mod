@@ -32,6 +32,18 @@ public final class BoundedCache<K, V> {
 		return value;
 	}
 
+	public synchronized V get(K key) {
+		return values.get(key);
+	}
+
+	public synchronized void put(K key, V value) {
+		if (value == null) {
+			values.remove(key);
+		} else {
+			values.put(key, value);
+		}
+	}
+
 	public synchronized void clear() {
 		values.clear();
 	}

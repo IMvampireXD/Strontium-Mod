@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "name.modid.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"mixins": [],
+	"mixins": [
+		"ConnectionTrafficMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},
